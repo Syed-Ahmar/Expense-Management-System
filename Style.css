@@ -1,51 +1,208 @@
-*{
-    margin: 0%;
-    padding: 0%;
-    box-sizing: border-box;
-}
+/* Body */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url(https://www.simplydynamics.com/wp-content/uploads/2021/08/glenn-carstens-peters-npxXWgQ33ZQ-unsplash.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
-    overflow: scroll;
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
+    padding: 0;
+    background-color: #f2f2f2;
   }
-
+  
+  /* Main container */
+  .main-container {
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Header */
   .header {
-    text-align: center;
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    font-size: 2.5em;
-    margin-top: 50px;
+    background-color: #212121;
+    color: #fff;
+    padding: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
-
-  .header a {
-    display: block;
-    margin-top: 20px;
-    font-size: 1.2em;
-    color: #333;
-    text-decoration: none;
-    border: 2px solid #333;
+  
+  .header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  /* Body */
+  .body {
+    padding: 20px;
+  }
+  
+  /* Expense details button */
+  .button h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .buttontop {
+    margin: 10px 0;
+  }
+  
+  .buttontop button {
+    background-color: #212121;
+    color: #fff;
+    border: none;
     padding: 10px;
     border-radius: 5px;
-    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
   }
-
-  .header a:hover {
+  
+  .buttontop button:hover {
+    background-color: #424242;
+  }
+  
+  /* Add expenses form */
+  #addExpenses {
+    display: none;
+    margin-top: 20px;
+  }
+  
+  .button1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .button1 input,
+  .button1 select {
+    width: calc(33.33% - 10px);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    font-size: 16px;
+  }
+  
+  .button1 input:focus,
+  .button1 select:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .button0 {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    font-size: 16px;
+    appearance: none;
+  }
+  
+  .button0:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Buttons */
+  .button2 button {
+    background-color: #212121;
     color: #fff;
-    background-color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
   }
-
-  .main-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 30px;
+  
+  .button2 button:hover {
+    background-color: #424242;
+  }
+  
+  /* Search box */
+  .search input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    font-size: 16px;
+  }
+  
+  .search input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  /* Search button */
+.button3 button {
+    background-color: #212121;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .button3 button:hover {
+    background-color: #424242;
+  }
+  
+  /* Search error message */
+  #searchError {
+    color: #f44336;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  
+  /* Expense table */
+  #expenseTable {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #expenseTable th {
+    background-color: #4caf50;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+  }
+  
+  #expenseTable td {
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    padding: 10px;
+  }
+  
+  #expenseTable td:last-child {
+    text-align: center;
+  }
+  
+  #expenseTable td a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  #expenseTable td a.edit {
+    background-color: #2196f3;
+    margin-right: 5px;
+  }
+  
+  #expenseTable td a.delete {
+    background-color: #f44336;
+  }
+  
+  #expenseTable td a:hover {
+    background-color: #757575;
+  }
+  
+  /* Total expense */
+  .total {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
   }

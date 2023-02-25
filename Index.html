@@ -5,18 +5,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome To Expense Management System</title>
+    <title>DASHBOARD | HOME</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Domine&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="main-container">
-            <div class="header">
-                <p> Welcome To Expense Management System</p>
-                <a href="./Assets/Index.html">Click here to use the system</a>
+        <div class="header" id="header">
+            <h1 id="welcomeNote"></h1>
+        </div>
+        <div class="body">
+            <div class="button">
+                <h1>Expense Details</h1>
+                <div class="buttontop">
+                    <button onclick="expenseDetails()">Add Expense </button>
+                </div>
             </div>
-    </div>
+            <br />
+            <div id="addExpenses">
+                <div class="button1">
+                    <input type="text" placeholder="Expense Description" id="expenseName" />
+                    <input type="number" placeholder=" Expense Amount" id="expenseAmount" />
+                    <select class="button0" placeholder="Select Category" name="expCat" id="expCat">
+                        <option value="Unknown" placeholder="Category">Select Category</option>
+                      </select>
+                </div>
+                <br />
+                <div class="button2">
+                    <button onclick="addExpense()">Add</button>
+                    <button onclick="done()">Done</button>
+                    <button onclick="newCategory()">New Category</button>
+                </div>
+            </div>
+            <div class="search">
+                <input type="search" placeholder="Search by Category..." id="search" onkeyup="search()" />
+            </div>
+            <div class="button3">
+                <button id="searchBtn">Search</button>
+                <div id="searchError"></div>
+            </div>
+            <div class="item">
+                <table border="1px" cellspacing="0" id="expenseTable">
+                    <th>Ex.ID</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Created On</th>
+                    <th>Actions</th>
+                    <th>Actions</th>
+                </table>
+            </div>
+            <b style="display: flex; justify-content: center;" id="total" class="total"></b>
+      </div>
+        </div>
+        <div class="logout">
+            <button><a href="../../Index.html" class="logout1" id="logOut" onclick="logOut()"><b>Logout</b></a></button>
+        </div>
+        <script src="./Script.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>

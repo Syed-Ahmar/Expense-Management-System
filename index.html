@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up | Expense Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Domine&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container" id="container">
+        <div class="header">
+            <p>Expense Management System</p>
+        </div>
+        <div id="formsubmitted"></div>
+        <div class="body">
+            <form>
+                User Name ;
+                <br/>
+                <input type="text" required placeholder="User Name" class="name1" id="username"/>
+                <br/>
+                Email Address ;
+                <br/>
+                <input type="email" required placeholder="Email@expense.com" class="name2" id="email"/>
+                <br/>
+                Password ;
+                <br/>
+                <input type="password" maxlength="8" placeholder="8 Characters Minimum" required title="8 Characters Minimum" class="name3" id="password"/>
+                <a class="red" id="alert">password Should Consist 8 Characters Minimum</a>
+                <br/>
+                Confirm Password ;
+                <br/>
+                <input type="password" required placeholder="Confirm your Password" class="name4" id="confirmpassword" onblur="passwordMatch()"/>
+                <div id="alert"></div>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+        <br/>
+        <a href="./../Index.html" class="bottom" id="createLogin">Already Have Account</a>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
