@@ -1,58 +1,37 @@
-//localStorage.clear()
+//calling event when login
+document.getElementById("loginBTN").addEventListener("click", login)
 
-let passwordMatch = () => {
-    let pass = document.getElementById("password").value
-    let conpass = document.getElementById("confirmpassword").value
+function login(e) {
+    e.preventDefault() //this will prevent page to refresh
+    // getting values from user
+    let emailEntered = document.getElementById("email").value;
+    let passwordEntered = document.getElementById("password").value;
 
-    if (pass != conpass) {
-        document.getElementById("alert").innerHTML = "Passwords do not match"
+    //getting data from localstorage
+    let storedUsers = JSON.parse(localStorage.getItem("usersData"))
+    console.log(storedUsers)
+
+    if (storedUsers == null) {
+        document.getElementById("emailError").innerHTML = "EMAIL PASSWORD INCORRECT"
+        console.log("#")
     } else {
-        document.getElementById("alert").innerHTML = " "
+        let currentUser = storedUsers.find(e => e.email == emailEntered)
+        console.log(currentUser)
+        if (currentUser.email == emailEntered && currentUser.password == passwordEntered) {
+            moveToDashboard()
+            let current = {
+                currentName: currentUser.username,
+                userId: currentUser.id
+            }
+            let currentuser = JSON.stringify(current)
+            localStorage.setItem("currentUser", currentuser)
+        } else {
+            document.getElementById("emailError").innerHTML = "EMAIL PASSWORD INCORRECT"
+            console.log("#")
+        }
     }
 }
 
-document.querySelector('form').onsubmit = function (e) {
-    e.preventDefault();//this will prevent refresh
-        let pass = document.getElementById("password").value
-        let conpass = document.getElementById("confirmpassword").value
-    
-        if (pass != conpass) {
-            swal("Password Error", "...Password and Confirm Password are not same!");
-        } else {
-            let uname = document.getElementById("username").value; 
-    let uemail = document.getElementById("email").value;
-    let upassword = document.getElementById("password").value;
-    let cpassword = document.getElementById("confirmpassword").value
-
-    //managing needed data of user
-    const userData = {
-        username: uname,
-        email: uemail,
-        password: upassword,
-        id: Math.floor(Math.random()*100001)+1001
-    }
-
-    //getting items from storage if any
-    let users = localStorage.getItem("usersData")
-    if (users == undefined) {
-        users = []
-    } else {
-        users = JSON.parse(users)
-    }
-    
-    //pushing user data to a Users ARRAY
-    users.push(userData)
-
-    //converting Users ARRAY to String and storing to data to store
-    let data = JSON.stringify(users)
-    localStorage.setItem("usersData", data)
-
-    //Actions performed after submission for UX
-    document.getElementById("formsubmitted").innerHTML = "Sign-Up Successfully"
-    document.getElementById("username").value = ""
-    document.getElementById("email").value = ""
-    document.getElementById("password").value = ""
-    document.getElementById("confirmpassword").value = ""
-        }
-    }
-
+function moveToDashboard() {
+    location.href = "./Assets/Assets/Index.html"
+}
